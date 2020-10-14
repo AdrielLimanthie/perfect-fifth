@@ -1,56 +1,10 @@
-const INITIAL_MELODY = [
-  {
-    // C Chord
-    pitch: "C4",
-    value: 0.125,
-  },
-  {
-    pitch: "E4",
-    value: 0.125,
-  },
-  {
-    pitch: "F4",
-    value: 0.125,
-  },
-  {
-    pitch: "E4",
-    value: 0.125,
-  },
-  {
-    pitch: "G4",
-    value: 0.5,
-  },
-  {
-    // F Chord
-    pitch: "F4",
-    value: 0.125,
-  },
-  {
-    pitch: "E4",
-    value: 0.125,
-  },
-  {
-    pitch: "F4",
-    value: 0.125,
-  },
-  {
-    pitch: "E4",
-    value: 0.125,
-  },
-  {
-    pitch: "D4",
-    value: 0.5,
-  },
-];
-
 const MEASURE_SIZE = 1; // 4/4
 const MAX_MEASURES = 2; // 2 Bars
 
-function getChordProgression(melody) {
+export default function getChordProgression(melody) {
   const measures = divideMelodyByMeasures(melody);
 
   const chords = measures.map((measure) => {
-    console.log("measure", measure);
     const weightedNotes = weighNotesFromMeasure(measure);
     return getChordFromNotes(weightedNotes);
   });
@@ -128,10 +82,7 @@ const CHORDS = [
   },
 ];
 
-// const TRIAD_INDEX_PRIORITY = [[0, 1, 2]];
-
 function getChordFromNotes(weightedNotes) {
-  // console.log("weightedNotes", weightedNotes);
   if (weightedNotes.length === 1) {
     for (const chord of CHORDS) {
       // When there is only 1 note, pick the chord with the same base note
@@ -166,7 +117,6 @@ function getChordFromNotes(weightedNotes) {
     }
 
     if (!found) {
-      console.log("recursion");
       return getChordFromNotes(
         weightedNotes.slice(0, Math.min(2, weightedNotes.length - 1))
       );
@@ -199,5 +149,3 @@ function getChordFromNotes(weightedNotes) {
 
   return;
 }
-
-console.log("Chords", getChordProgression(INITIAL_MELODY));

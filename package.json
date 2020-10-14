@@ -1,0 +1,21 @@
+{
+  "name": "perfect-fifth",
+  "version": "1.0.0",
+  "repository": "https://github.com/AdrielLimanthie/perfect-fifth.git",
+  "author": "Adriel Limanthie <a.limanthie@yahoo.com>",
+  "license": "MIT",
+  "private": "true",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^4.5.0",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "tone": "^14.7.58"
+  }
+}
