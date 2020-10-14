@@ -1,5 +1,5 @@
 const MEASURE_SIZE = 1; // 4/4
-const MAX_MEASURES = 2; // 2 Bars
+const MAX_MEASURES = 16; // 16 Bars
 
 export default function getChordProgression(melody) {
   const measures = divideMelodyByMeasures(melody);
@@ -92,14 +92,19 @@ function getChordFromNotes(weightedNotes) {
       }
     }
   } else if (weightedNotes.length === 2) {
+    let found = false;
     for (const chord of CHORDS) {
       // Simplified detection of 2 notes, more likely to choose major over minor chords
       if (
         chord.notes.includes(weightedNotes[0].pitch) &&
         chord.notes.includes(weightedNotes[1].pitch)
       ) {
+        found = true;
         return chord;
       }
+    }
+    if (!found) {
+      return getChordFromNotes(weightedNotes.slice(0, 1));
     }
   } else {
     const triadIndex = [0, 1, 2];

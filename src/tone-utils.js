@@ -1,3 +1,5 @@
+import * as Tone from "tone";
+
 export function getToneDurationFromValue(value) {
   switch (value) {
     case 1:
@@ -35,10 +37,12 @@ export function playChord(chordSynth, chordProgression) {
     chordSynth.triggerAttackRelease(
       chord.notes.map((note) => `${note}3`),
       "1n",
-      `${index}:0`,
+      `+${index}:0`,
       0.5
     );
   });
+
+  Tone.start();
 }
 
 export function playMelody(synth, melody) {
@@ -46,7 +50,9 @@ export function playMelody(synth, melody) {
   melody.forEach((note) => {
     const duration = getToneDurationFromValue(note.value);
     const time = getTimeFromValue(currentTime);
-    synth.triggerAttackRelease(note.pitch, duration, time);
+    synth.triggerAttackRelease(note.pitch, duration, `+${time}`);
     currentTime += note.value;
   });
+
+  Tone.start();
 }
