@@ -1,6 +1,9 @@
 import * as Tone from "tone";
+import { PolySynth, Synth } from "tone";
+import { Monophonic } from "tone/build/esm/instrument/Monophonic";
+import { Chord, Note } from "./types";
 
-export function getToneDurationFromValue(value) {
+export function getToneDurationFromValue(value: number) {
   switch (value) {
     case 1:
       return "1n";
@@ -19,7 +22,7 @@ export function getToneDurationFromValue(value) {
   }
 }
 
-export function getTimeFromValue(value) {
+export function getTimeFromValue(value: number) {
   const bar = Math.floor(value / 1);
   const barRemainder = value % 1;
   const quarter = Math.floor(barRemainder / 0.25);
@@ -28,7 +31,7 @@ export function getTimeFromValue(value) {
   return `${bar}:${quarter}:${sixteenth}`;
 }
 
-export function playChord(chordSynth, chordProgression) {
+export function playChord(chordSynth: PolySynth, chordProgression: Chord[]) {
   chordProgression.forEach((chord, index) => {
     if (!chord) {
       return;
@@ -45,7 +48,7 @@ export function playChord(chordSynth, chordProgression) {
   Tone.start();
 }
 
-export function playMelody(synth, melody) {
+export function playMelody(synth: Monophonic<any>, melody: Note[]) {
   let currentTime = 0;
   melody.forEach((note) => {
     const duration = getToneDurationFromValue(note.value);

@@ -1,4 +1,6 @@
-export const RANDOM_MELODY_1 = [
+import { Note } from "./types";
+
+export const RANDOM_MELODY_1: Note[] = [
   {
     // C Chord
     pitch: "C4",
@@ -43,7 +45,7 @@ export const RANDOM_MELODY_1 = [
   },
 ];
 
-export const RANDOM_MELODY_2 = [
+export const RANDOM_MELODY_2: Note[] = [
   // C Chord
   {
     pitch: "C5",
@@ -162,7 +164,7 @@ export const RANDOM_MELODY_2 = [
   },
 ];
 
-export const DOREMI = [
+export const DOREMI: Note[] = [
   // C Chord
   {
     pitch: "C4",

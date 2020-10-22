@@ -1,7 +1,10 @@
+import { CHORDS } from "./chords";
+import { BaseNote, Chord, Note, PitchLabel, WeightedNote } from "./types";
+
 const MEASURE_SIZE = 1; // 4/4
 const MAX_MEASURES = 16; // 16 Bars
 
-export default function getChordProgression(melody) {
+export default function getChordProgression(melody: Note[]) {
   const measures = divideMelodyByMeasures(melody);
 
   const chords = measures.map((measure) => {
@@ -12,7 +15,7 @@ export default function getChordProgression(melody) {
   return chords;
 }
 
-function divideMelodyByMeasures(melody) {
+function divideMelodyByMeasures(melody: Note[]) {
   let beat = 0,
     i = 0,
     measure = [],
@@ -29,10 +32,15 @@ function divideMelodyByMeasures(melody) {
   return measures;
 }
 
-function weighNotesFromMeasure(measure) {
-  const weightMap = {};
+function weighNotesFromMeasure(measure: Note[]): WeightedNote[] {
+  const weightMap: {
+    [key in BaseNote]?: number;
+  } = {};
   for (const note of measure) {
     const pitch = getPitchWithoutOctave(note.pitch);
+    if (pitch === "rest") {
+      return;
+    }
     if (weightMap[pitch]) {
       weightMap[pitch] = weightMap[pitch] + note.value;
     } else {
@@ -40,49 +48,21 @@ function weighNotesFromMeasure(measure) {
     }
   }
   return Object.keys(weightMap)
-    .map((pitch) => ({
+    .map((pitch: BaseNote) => ({
       pitch,
       weight: weightMap[pitch],
     }))
     .sort((a, b) => b.weight - a.weight);
 }
 
-function getPitchWithoutOctave(pitch) {
-  return pitch.slice(0, pitch.length - 1);
+function getPitchWithoutOctave(pitch: PitchLabel | "rest"): BaseNote | "rest" {
+  if (pitch === "rest") {
+    return pitch;
+  }
+  return pitch.slice(0, pitch.length - 1) as BaseNote;
 }
 
-const CHORDS = [
-  {
-    chord: "C",
-    notes: ["C", "E", "G"],
-  },
-  {
-    chord: "G",
-    notes: ["G", "B", "D"],
-  },
-  {
-    chord: "F",
-    notes: ["F", "A", "C"],
-  },
-  {
-    chord: "Am",
-    notes: ["A", "C", "E"],
-  },
-  {
-    chord: "Em",
-    notes: ["E", "G", "B"],
-  },
-  {
-    chord: "Dm",
-    notes: ["D", "F", "A"],
-  },
-  {
-    chord: "Bdim",
-    notes: ["B", "D", "F"],
-  },
-];
-
-function getChordFromNotes(weightedNotes) {
+function getChordFromNotes(weightedNotes: WeightedNote[]): Chord {
   if (weightedNotes.length === 1) {
     for (const chord of CHORDS) {
       // When there is only 1 note, pick the chord with the same base note
