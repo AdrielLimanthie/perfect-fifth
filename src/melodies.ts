@@ -408,8 +408,232 @@ export const DOREMI: Note[] = [
   },
 ];
 
+export const LONDON_BRIDGE: Note[] = [
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "G4",
+    value: 0.25,
+  },
+  {
+    pitch: "A4",
+    value: 0.25,
+  },
+  {
+    pitch: "A4",
+    value: 0.25,
+  },
+  {
+    pitch: "G4",
+    value: 0.5,
+  },
+  {
+    pitch: "E5",
+    value: 0.25,
+  },
+  {
+    pitch: "E5",
+    value: 0.25,
+  },
+  {
+    pitch: "D5",
+    value: 0.25,
+  },
+  {
+    pitch: "D5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.75,
+  },
+  {
+    pitch: "G4",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "G4",
+    value: 0.25,
+  },
+  {
+    pitch: "A4",
+    value: 0.25,
+  },
+  {
+    pitch: "A4",
+    value: 0.25,
+  },
+  {
+    pitch: "G4",
+    value: 0.5,
+  },
+  {
+    pitch: "E5",
+    value: 0.25,
+  },
+  {
+    pitch: "E5",
+    value: 0.25,
+  },
+  {
+    pitch: "D5",
+    value: 0.25,
+  },
+  {
+    pitch: "D5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.75,
+  },
+  {
+    pitch: "G4",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "G4",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "G4",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "G4",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "G4",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.125,
+  },
+  {
+    pitch: "C5",
+    value: 0.125,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "G4",
+    value: 0.25,
+  },
+  {
+    pitch: "A4",
+    value: 0.25,
+  },
+  {
+    pitch: "A4",
+    value: 0.25,
+  },
+  {
+    pitch: "G4",
+    value: 0.5,
+  },
+  {
+    pitch: "E5",
+    value: 0.25,
+  },
+  {
+    pitch: "E5",
+    value: 0.25,
+  },
+  {
+    pitch: "D5",
+    value: 0.25,
+  },
+  {
+    pitch: "D5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 1,
+  },
+];
+
 export const MELODY_OPTIONS = [
   { name: "Random Melody 1", data: RANDOM_MELODY_1 },
   { name: "Random Melody 2", data: RANDOM_MELODY_2 },
   { name: "Doremi Song", data: DOREMI },
+  { name: "London Bridge is Falling Down", data: LONDON_BRIDGE },
 ];
