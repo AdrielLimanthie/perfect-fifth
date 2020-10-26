@@ -27,6 +27,9 @@ export function displaySong(melody: Note[], chordProgression: TimedChord[]) {
       bar = time === 0 ? [] : [createEmptyChord(Math.min(time, 1))];
     }
   });
+  if (bar.length > 0) {
+    chordsByBar.push(bar);
+  }
 
   const notesByBar: Note[][] = [];
   let noteBar: Note[] = [];
@@ -49,6 +52,9 @@ export function displaySong(melody: Note[], chordProgression: TimedChord[]) {
       noteBar = time === 0 ? [] : [createEmptyNote(Math.min(time, 1))];
     }
   });
+  if (noteBar.length > 0) {
+    notesByBar.push(noteBar);
+  }
 
   const container = document.createElement("div");
   container.style.display = "flex";
