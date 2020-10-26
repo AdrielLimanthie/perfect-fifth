@@ -56,7 +56,7 @@ export function playTimedChord(
 export function playMelody(synth: Monophonic<any>, melody: Note[]) {
   let currentTime = 0;
   melody.forEach((note) => {
-    const duration = getTimeFromValue(note.value);
+    const duration = getTimeFromValue(note.value - 0.0625);
     const time = getTimeFromValue(currentTime);
     synth.triggerAttackRelease(note.pitch, duration, `+${time}`, 0.4);
     currentTime += note.value;
