@@ -373,7 +373,38 @@ export const DOREMI: Note[] = [
   // C Chord
   {
     pitch: "C5",
-    value: 1,
+    value: 0.75,
+  },
+  {
+    pitch: "C5",
+    value: 0.125,
+  },
+  {
+    pitch: "B4",
+    value: 0.125,
+  },
+  // F Chord
+  {
+    pitch: "A4",
+    value: 0.25,
+  },
+  {
+    pitch: "F4",
+    value: 0.25,
+  },
+  // G Chord
+  {
+    pitch: "B4",
+    value: 0.25,
+  },
+  {
+    pitch: "G4",
+    value: 0.25,
+  },
+  // C Chord
+  {
+    pitch: "C5",
+    value: 0.5,
   },
 ];
 

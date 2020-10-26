@@ -13,6 +13,10 @@ export type Chord = {
   notes: BaseNote[];
 };
 
+export type TimedChord = Chord & {
+  value: number;
+};
+
 export type BaseNote =
   | "C"
   | "C#"

@@ -1,29 +1,10 @@
 import * as Tone from "tone";
-import { PolySynth, Synth } from "tone";
+import { PolySynth } from "tone";
 import { Monophonic } from "tone/build/esm/instrument/Monophonic";
-import { Chord, Note } from "./types";
-
-export function getToneDurationFromValue(value: number) {
-  switch (value) {
-    case 1:
-      return "1n";
-    case 0.75:
-      return "2n.";
-    case 0.5:
-      return "2n";
-    case 0.375:
-      return "4n.";
-    case 0.25:
-      return "4n";
-    case 0.1875:
-      return "8n.";
-    case 0.125:
-      return "8n";
-  }
-}
+import { Chord, Note, TimedChord } from "./types";
 
 export function getTimeFromValue(value: number) {
-  const bar = Math.floor(value / 1);
+  const bar = Math.floor(value);
   const barRemainder = value % 1;
   const quarter = Math.floor(barRemainder / 0.25);
   const quarterRemainder = barRemainder % 0.25;
@@ -41,8 +22,32 @@ export function playChord(chordSynth: PolySynth, chordProgression: Chord[]) {
       chord.notes.map((note) => `${note}3`),
       "1n",
       `+${index}:0`,
-      0.5
+      0.1
     );
+  });
+
+  Tone.start();
+}
+
+export function playTimedChord(
+  chordSynth: PolySynth,
+  chordProgression: TimedChord[]
+) {
+  let currentTime = 0;
+  chordProgression.forEach((chord) => {
+    if (!chord) {
+      return;
+    }
+
+    const duration = getTimeFromValue(chord.value);
+    const time = getTimeFromValue(currentTime);
+    chordSynth.triggerAttackRelease(
+      chord.notes.map((note) => `${note}3`),
+      duration,
+      `+${time}`,
+      0.2
+    );
+    currentTime += chord.value;
   });
 
   Tone.start();
@@ -51,9 +56,9 @@ export function playChord(chordSynth: PolySynth, chordProgression: Chord[]) {
 export function playMelody(synth: Monophonic<any>, melody: Note[]) {
   let currentTime = 0;
   melody.forEach((note) => {
-    const duration = getToneDurationFromValue(note.value);
+    const duration = getTimeFromValue(note.value);
     const time = getTimeFromValue(currentTime);
-    synth.triggerAttackRelease(note.pitch, duration, `+${time}`);
+    synth.triggerAttackRelease(note.pitch, duration, `+${time}`, 0.4);
     currentTime += note.value;
   });
 
