@@ -2,22 +2,28 @@ import { CHORDS } from "./chords";
 import { BaseNote, Chord, Note, PitchLabel, TimedChord } from "./types";
 
 const MEASURE_SIZE = 1; // 4/4
-const MAX_BARS = 100; // 100 Bars
+const MAX_BARS = 200; // 100 Bars
 
-export default function getChordProgression(melody: Note[]): TimedChord[] {
+export default function getChordProgression(
+  melody: Note[],
+  baseKey: BaseNote
+): TimedChord[] {
   let i = 0,
     currentBeat = 0,
-    currentChord = CHORDS.find((chord) => chord.chord === "C"), // Set to base key chord
+    currentChord = CHORDS.find((chord) => chord.chord === baseKey), // Set to base key chord
     chordProgression: TimedChord[] = [];
 
   for (i = 0; i < melody.length; i++) {
     const note = melody[i];
     const baseNote = getBaseNote(note.pitch);
+    const relevantChordNotes = currentChord.notes.filter(
+      (note) => note !== baseKey
+    );
     if (
       baseNote === "rest" ||
-      currentChord.notes.includes(baseNote) ||
+      relevantChordNotes.includes(baseNote) ||
       !isStrongBeat(currentBeat) ||
-      isPassingOrNeighborNote(melody.slice(i), currentChord, currentBeat)
+      isPassingOrNeighborNote(melody.slice(i), relevantChordNotes, currentBeat)
     ) {
       // Keep the same chord
     } else {
@@ -119,7 +125,7 @@ function predictChordFromPossibleChords(
  */
 function isPassingOrNeighborNote(
   melody: Note[],
-  chord: Chord,
+  chordNotes: BaseNote[],
   startingBeat: number
 ) {
   if (melody.length === 1) {
@@ -129,7 +135,7 @@ function isPassingOrNeighborNote(
 
   const nextChordNoteIndex = melody.findIndex((note) => {
     const baseNote = getBaseNote(note.pitch);
-    return baseNote !== "rest" && chord.notes.includes(baseNote);
+    return baseNote !== "rest" && chordNotes.includes(baseNote);
   });
   if (nextChordNoteIndex === -1) {
     // If there is no chord note after, it's probably not passing/neighbor note

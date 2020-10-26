@@ -8,7 +8,10 @@ const chordSynth = new Tone.PolySynth().toDestination();
 const melodySynth = new Tone.FMSynth().toDestination();
 
 let melodyIndex = 0;
-let chordProgression = getChordProgression2(MELODY_OPTIONS[melodyIndex].data);
+let chordProgression = getChordProgression2(
+  MELODY_OPTIONS[melodyIndex].data,
+  "C"
+);
 
 window.onload = () => {
   const playMelodyButton = document.createElement("button");
@@ -44,7 +47,10 @@ window.onload = () => {
     option.style.marginBottom = "10px";
     option.onclick = () => {
       melodyIndex = index;
-      chordProgression = getChordProgression2(MELODY_OPTIONS[melodyIndex].data);
+      chordProgression = getChordProgression2(
+        MELODY_OPTIONS[melodyIndex].data,
+        "C"
+      );
       chordDisplay.removeChild(chordDisplay.childNodes[0]);
       chordDisplay.appendChild(
         displaySong(MELODY_OPTIONS[melodyIndex].data, chordProgression)
