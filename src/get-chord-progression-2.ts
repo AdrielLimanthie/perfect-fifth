@@ -30,7 +30,7 @@ export default function getChordProgression(
       const possibleNextChords = getPossibleNextChords(baseNote);
       currentChord = predictChordFromPossibleChords(
         possibleNextChords,
-        melody.slice(i + 1)
+        melody.slice(i)
       );
     }
     chordProgression = addChordToProgression(
@@ -96,6 +96,11 @@ function predictChordFromPossibleChords(
     i = 0,
     found = false,
     predictedChord = possibleChords[0];
+
+  if (melody[i].value === 1) {
+    return predictedChord;
+  }
+
   while (!found && i < melody.length) {
     const note = melody[i];
     const baseNote = getBaseNote(note.pitch);
