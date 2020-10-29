@@ -4,14 +4,15 @@ import { playTimedChord, playMelody } from "./tone-utils";
 import { MELODY_OPTIONS } from "./melodies";
 import { displaySong } from "./display-utils";
 
-const chordSynth = new Tone.PolySynth().toDestination();
-const melodySynth = new Tone.FMSynth().toDestination();
-
 let melodyIndex = 0;
 let chordProgression = getChordProgression2(
   MELODY_OPTIONS[melodyIndex].data,
   "C"
 );
+Tone.Transport.bpm.value = MELODY_OPTIONS[melodyIndex].bpm;
+
+const chordSynth = new Tone.PolySynth().toDestination();
+const melodySynth = new Tone.FMSynth().toDestination();
 
 window.onload = () => {
   const playMelodyButton = document.createElement("button");
@@ -51,6 +52,7 @@ window.onload = () => {
         MELODY_OPTIONS[melodyIndex].data,
         "C"
       );
+      Tone.Transport.bpm.value = MELODY_OPTIONS[melodyIndex].bpm;
       chordDisplay.removeChild(chordDisplay.childNodes[0]);
       chordDisplay.appendChild(
         displaySong(MELODY_OPTIONS[melodyIndex].data, chordProgression)
