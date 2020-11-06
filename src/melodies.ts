@@ -408,7 +408,7 @@ export const DOREMI: Note[] = [
   },
 ];
 
-export const LONDON_BRIDGE: Note[] = [
+export const OLD_MACDONALDS: Note[] = [
   {
     pitch: "C5",
     value: 0.25,
@@ -1076,7 +1076,7 @@ export const MELODY_OPTIONS = [
   // { name: "Random Melody 1", bpm: 120, data: RANDOM_MELODY_1 },
   // { name: "Random Melody 2", bpm: 120, data: RANDOM_MELODY_2 },
   { name: "Doremi Song", bpm: 120, data: DOREMI },
-  { name: "London Bridge is Falling Down", bpm: 120, data: LONDON_BRIDGE },
+  { name: "Old MacDonalds", bpm: 120, data: OLD_MACDONALDS },
   { name: "Imagine", bpm: 80, data: IMAGINE },
   { name: "Canon in C", bpm: 140, data: CANON_IN_C },
 ];
