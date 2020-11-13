@@ -20,18 +20,32 @@ export default function getChordProgression(
       (note) => note !== baseKey
     );
     if (
-      baseNote === "rest" ||
-      relevantChordNotes.includes(baseNote) ||
       !isStrongBeat(currentBeat) ||
-      isPassingOrNeighborNote(melody.slice(i), relevantChordNotes, currentBeat)
+      (baseNote !== "rest" &&
+        (relevantChordNotes.includes(baseNote) ||
+          isPassingOrNeighborNote(
+            melody.slice(i),
+            relevantChordNotes,
+            currentBeat
+          )))
     ) {
       // Keep the same chord
-    } else {
+    } else if (baseNote !== "rest") {
       const possibleNextChords = getPossibleNextChords(baseNote);
       currentChord = predictChordFromPossibleChords(
         possibleNextChords,
         melody.slice(i)
       );
+    } else {
+      const nextNoteAfterRest = getNextNoteAfterRest(melody.slice(i));
+      if (typeof nextNoteAfterRest !== "undefined") {
+        const nextBaseNote = getBaseNote(nextNoteAfterRest.pitch) as BaseNote;
+        const possibleNextChords = getPossibleNextChords(nextBaseNote);
+        currentChord = predictChordFromPossibleChords(
+          possibleNextChords,
+          melody.slice(i)
+        );
+      }
     }
     chordProgression = addChordToProgression(
       chordProgression,
@@ -104,20 +118,17 @@ function predictChordFromPossibleChords(
   while (!found && i < melody.length) {
     const note = melody[i];
     const baseNote = getBaseNote(note.pitch);
-    if (baseNote === "rest") {
-      i++;
-      return;
-    }
-
-    // TODO: Consider passing note & neighbor note
-    currentPossibleChords = currentPossibleChords.filter((chord) =>
-      chord.notes.includes(baseNote)
-    );
-    if (currentPossibleChords.length === 1) {
-      predictedChord = currentPossibleChords[0];
-      found = true;
-    } else if (currentPossibleChords.length === 0) {
-      found = true;
+    if (baseNote !== "rest") {
+      // TODO: Consider passing note & neighbor note
+      currentPossibleChords = currentPossibleChords.filter((chord) =>
+        chord.notes.includes(baseNote)
+      );
+      if (currentPossibleChords.length === 1) {
+        predictedChord = currentPossibleChords[0];
+        found = true;
+      } else if (currentPossibleChords.length === 0) {
+        found = true;
+      }
     }
 
     i++;
@@ -158,4 +169,11 @@ function isPassingOrNeighborNote(
     currentBeat += note.value;
     return isNoteAtWeakerBeat;
   });
+}
+
+function getNextNoteAfterRest(melody: Note[]): Note | void {
+  if (melody[0].pitch === "rest") {
+    return getNextNoteAfterRest(melody.slice(1));
+  }
+  return melody[0];
 }

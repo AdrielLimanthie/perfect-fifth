@@ -692,7 +692,7 @@ export const IMAGINE: Note[] = [
     value: 0.125,
   },
   {
-    pitch: "A4",
+    pitch: "B4",
     value: 0.125,
   },
   // F
@@ -834,8 +834,12 @@ export const IMAGINE: Note[] = [
     value: 0.25,
   },
   {
+    pitch: "E5",
+    value: 0.0625,
+  },
+  {
     pitch: "D5",
-    value: 0.125,
+    value: 0.0625,
   },
   // C
   {
@@ -1076,7 +1080,7 @@ export const MELODY_OPTIONS = [
   // { name: "Random Melody 1", bpm: 120, data: RANDOM_MELODY_1 },
   // { name: "Random Melody 2", bpm: 120, data: RANDOM_MELODY_2 },
   { name: "Doremi Song", bpm: 120, data: DOREMI },
-  { name: "Old MacDonalds", bpm: 120, data: OLD_MACDONALDS },
+  { name: "Old MacDonalds", bpm: 140, data: OLD_MACDONALDS },
   { name: "Imagine", bpm: 80, data: IMAGINE },
   { name: "Canon in C", bpm: 140, data: CANON_IN_C },
 ];
