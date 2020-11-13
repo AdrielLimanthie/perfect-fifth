@@ -133,4 +133,17 @@ export type PitchLabel =
   | "A#6"
   | "B6";
 
-export type ChordName = "C" | "Dm" | "Em" | "F" | "G" | "Am" | "Bdim";
+export type ChordName =
+  | "C"
+  | "Dm"
+  | "Em"
+  | "F"
+  | "G"
+  | "Am"
+  | "Bdim"
+  | "Cmaj7"
+  | "Dm7"
+  | "Em7"
+  | "Fmaj7"
+  | "Gmaj7"
+  | "Am7";

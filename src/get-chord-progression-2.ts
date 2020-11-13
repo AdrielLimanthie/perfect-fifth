@@ -10,7 +10,7 @@ export default function getChordProgression(
 ): TimedChord[] {
   let i = 0,
     currentBeat = 0,
-    currentChord = CHORDS.find((chord) => chord.chord === baseKey), // Set to base key chord
+    currentChord = CHORDS[0], // Set to base key chord
     chordProgression: TimedChord[] = [];
 
   for (i = 0; i < melody.length; i++) {

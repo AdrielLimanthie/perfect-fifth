@@ -30,3 +30,34 @@ export const CHORDS: Chord[] = [
     notes: ["B", "D", "F"],
   },
 ];
+
+export const JAZZY_CHORDS: Chord[] = [
+  {
+    chord: "Cmaj7",
+    notes: ["C", "E", "G", "B"],
+  },
+  {
+    chord: "Gmaj7",
+    notes: ["G", "B", "D", "F#"],
+  },
+  {
+    chord: "Fmaj7",
+    notes: ["F", "A", "C", "E"],
+  },
+  {
+    chord: "Am7",
+    notes: ["A", "C", "E", "G#"],
+  },
+  {
+    chord: "Em7",
+    notes: ["E", "G", "B", "D#"],
+  },
+  {
+    chord: "Dm7",
+    notes: ["D", "F", "A", "C#"],
+  },
+  {
+    chord: "Bdim",
+    notes: ["B", "D", "F"],
+  },
+];
