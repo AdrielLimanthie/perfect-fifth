@@ -848,6 +848,325 @@ export const IMAGINE: Note[] = [
   },
 ];
 
+export const JUST_THE_WAY_YOU_ARE: Note[] = [
+  // 1
+  {
+    pitch: "rest",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.0625,
+  },
+  {
+    pitch: "E4",
+    value: 0.0625,
+  },
+  // 2
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "A4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  // 3
+  {
+    pitch: "rest",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.0625,
+  },
+  {
+    pitch: "E4",
+    value: 0.0625,
+  },
+  // 4
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "A4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  // 5
+  {
+    pitch: "rest",
+    value: 0.25,
+  },
+  {
+    pitch: "E4",
+    value: 0.0625,
+  },
+  {
+    pitch: "E4",
+    value: 0.1875,
+  },
+  {
+    pitch: "F4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  {
+    pitch: "E4",
+    value: 0.25,
+  },
+  // 6
+  {
+    pitch: "rest",
+    value: 0.375,
+  },
+  {
+    pitch: "E4",
+    value: 0.0625,
+  },
+  {
+    pitch: "E4",
+    value: 0.0625,
+  },
+  {
+    pitch: "F4",
+    value: 0.0625,
+  },
+  {
+    pitch: "E4",
+    value: 0.125,
+  },
+  {
+    pitch: "F4",
+    value: 0.0625,
+  },
+  {
+    pitch: "G4",
+    value: 0.25,
+  },
+  // 7
+  {
+    pitch: "E4",
+    value: 1,
+  },
+  // 8
+  {
+    pitch: "rest",
+    value: 0.25,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "C5",
+    value: 0.125,
+  },
+  {
+    pitch: "D5",
+    value: 0.25,
+  },
+  {
+    pitch: "E5",
+    value: 0.125,
+  },
+  // 9
+  {
+    pitch: "E5",
+    value: 1,
+  },
+  // 10
+  {
+    pitch: "rest",
+    value: 0.375,
+  },
+  {
+    pitch: "G4",
+    value: 0.125,
+  },
+  {
+    pitch: "C5",
+    value: 0.125,
+  },
+  {
+    pitch: "D5",
+    value: 0.25,
+  },
+  {
+    pitch: "E5",
+    value: 0.25,
+  },
+  {
+    pitch: "D5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "D5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.5,
+  },
+  // 13
+  {
+    pitch: "rest",
+    value: 0.125,
+  },
+  {
+    pitch: "C5",
+    value: 0.125,
+  },
+  {
+    pitch: "C5",
+    value: 0.125,
+  },
+  {
+    pitch: "D5",
+    value: 0.125,
+  },
+  {
+    pitch: "E5",
+    value: 0.125,
+  },
+  {
+    pitch: "D5",
+    value: 0.5,
+  },
+  // 14
+  {
+    pitch: "rest",
+    value: 0.375,
+  },
+  {
+    pitch: "F5",
+    value: 0.25,
+  },
+  {
+    pitch: "E5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.25,
+  },
+  {
+    pitch: "D5",
+    value: 0.25,
+  },
+  {
+    pitch: "C5",
+    value: 0.5,
+  },
+];
+
 export const CANON_IN_C: Note[] = [
   // C
   {
@@ -1082,5 +1401,6 @@ export const MELODY_OPTIONS = [
   { name: "Doremi Song", bpm: 120, data: DOREMI },
   { name: "Old MacDonalds", bpm: 140, data: OLD_MACDONALDS },
   { name: "Imagine", bpm: 80, data: IMAGINE },
+  { name: "Just the Way You Are", bpm: 110, data: JUST_THE_WAY_YOU_ARE },
   { name: "Canon in C", bpm: 140, data: CANON_IN_C },
 ];
