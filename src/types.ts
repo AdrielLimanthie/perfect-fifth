@@ -1,6 +1,7 @@
 export type Note = {
   pitch: PitchLabel | "rest";
   value: number;
+  isTiedNote?: boolean;
 };
 
 export type WeightedNote = {

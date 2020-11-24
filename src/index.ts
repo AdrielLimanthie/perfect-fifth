@@ -1,11 +1,11 @@
 import * as Tone from "tone";
-import getChordProgression2 from "./get-chord-progression-2";
+import getChordProgression3 from "./get-chord-progression-3";
 import { playTimedChord, playMelody } from "./tone-utils";
 import { MELODY_OPTIONS } from "./melodies";
 import { displaySong } from "./display-utils";
 
 let melodyIndex = 0;
-let chordProgression = getChordProgression2(
+let chordProgression = getChordProgression3(
   MELODY_OPTIONS[melodyIndex].data,
   "C"
 );
@@ -31,6 +31,13 @@ window.onload = () => {
     playMelody(melodySynth, MELODY_OPTIONS[melodyIndex].data);
   };
 
+  const recalculateButton = document.createElement("button");
+  recalculateButton.textContent = "Recalculate";
+  recalculateButton.style.padding = "4px";
+  recalculateButton.onclick = () => {
+    getChordProgression3(MELODY_OPTIONS[melodyIndex].data, "C");
+  };
+
   const chordDisplay = document.createElement("div");
   chordDisplay.style.marginTop = "10px";
   chordDisplay.appendChild(
@@ -48,7 +55,7 @@ window.onload = () => {
     option.style.marginBottom = "10px";
     option.onclick = () => {
       melodyIndex = index;
-      chordProgression = getChordProgression2(
+      chordProgression = getChordProgression3(
         MELODY_OPTIONS[melodyIndex].data,
         "C"
       );
@@ -74,5 +81,6 @@ window.onload = () => {
   });
   root.appendChild(playMelodyButton);
   root.appendChild(playButton);
+  root.appendChild(recalculateButton);
   root.appendChild(chordDisplay);
 };
